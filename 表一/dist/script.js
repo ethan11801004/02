@@ -75,35 +75,31 @@ machineData.splice(index, 1);
 loadTable();
 }
 document.getElementById('uploadExcel').addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    const reader = new FileReader();
+const file = e.target.files[0];
+const reader = new FileReader();
 
-    reader.onload = function(event) {
-        const data = new Uint8Array(event.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
-        const firstSheetName = workbook.SheetNames[0];
-        const worksheet = workbook.Sheets[firstSheetName];
-        const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+reader.onload = function(event) {
+const data = new Uint8Array(event.target.result);
+const workbook = XLSX.read(data, { type: 'array' });
+const firstSheetName = workbook.SheetNames[0];
+const worksheet = workbook.Sheets[firstSheetName];
+const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-        // 清除現有資料
-        machineData = [];
 
-        // 將 Excel 資料轉換成物件格式並加入 machineData
-        jsonData.forEach((row, index) => {
-            if (index > 0) { // 假設第一列是標題
-                machineData.push({
-                    machineId: row[0] || '',
-                    machineName: row[1] || '',
-                    inspectionTime: row[2] || '',
-                    inspectionMethod: row[3] || '',
-                    inspectionFrequency: row[4] || ''
-                });
-            }
-        });
+machineData = [];
 
-        // 更新表格
-        loadTable();
-    };
-
-    reader.readAsArrayBuffer(file);
+jsonData.forEach((row, index) => {
+if (index > 0) { 
+machineData.push({
+machineId: row[0] || '',
+machineName: row[1] || '',
+inspectionTime: row[2] || '',
+inspectionMethod: row[3] || '',
+inspectionFrequency: row[4] || ''
+});
+}
+});
+loadTable();
+};
+reader.readAsArrayBuffer(file);
 });

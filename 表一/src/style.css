@@ -9,11 +9,14 @@ margin: 0 auto;
 padding: 20px;
 border: 1px solid #000;
 border-radius: 8px; 
-  background-color: #FFC0CB;
+background-color: #FFF;
+height: 1000px;
 }
 
 h2 {
 text-align: center;
+margin-top: 20px; /* 上方間距 */
+margin-bottom: 10px; /* 下方間距 */
 }
 
 form {
@@ -44,13 +47,18 @@ table {
 width: 100%;
 border-collapse: collapse;
 margin-top: 20px;
+height: 600px; 
+overflow-y: auto;
+display: block; *
 }
 
 th, td {
-border: 3px solid #000;
+border: 3px solid #c0c0c0;
 padding: 20px;
 text-align: center;
-background-color: #ADD8E6;
+background-color: #0078D7;
+color: #ffffff; 
+font-size: 18px;
 }
 
 td input {
@@ -82,12 +90,12 @@ margin-top: 10px;
     }
 }
 .gradient-text {
-   background: linear-gradient(45deg, #ff6b6b, #f0e130, #00aaff, #8e2de2, #4a00e0);
-  font-size: 4em;  /* 使用 em 單位調整字體大小 */
-    background-size: 400% 400%;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: gradient 5s ease infinite;
+background: linear-gradient(45deg, #ff6b6b, #f0e130, #00aaff, #8e2de2, #4a00e0);
+font-size: 4em; 
+background-size: 400% 400%;
+color: transparent;
+background-clip: text;
+-webkit-background-clip: text;
+animation: gradient 5s ease infinite;
 }
 
